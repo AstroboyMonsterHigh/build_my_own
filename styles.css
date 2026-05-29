@@ -3,6 +3,37 @@ This was created with Google Gemini, an AI assistant for generating content.
 The recipe and character are original creations for Codecademy practice.
 */
 
+
+/* fredoka-regular - latin */
+@font-face {
+  font-family: 'Fredoka';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/fredoka-v17-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* cinzel-decorative-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Cinzel Decorative';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/cinzel-decorative-v19-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* quicksand-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/quicksand-v37-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+* {
+    font-family: 'Fredoka' !important;
+}
+
 /* Update your Global section to include smooth scroll functionality */
 html {
     scroll-behavior: smooth; /* Animates the jump transitions when clicking navigation links */
