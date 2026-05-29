@@ -1,39 +1,45 @@
-/* 1. Global Styles & Thematic Colors */
+/*
+This was created with Google Gemini, an AI assistant for generating content. 
+The recipe and character are original creations for Codecademy practice.
+*/
+
+/* 1. Global Styles & The Rainbow Gradient Background */
 body {
-    background-color: #0b0c10; /* Dark space background to make neon colors POP */
-    color: #e0e0e0; /* Light gray text for readability */
+    /* This creates a smooth diagonal gradient from top-left to bottom-right using cute pastel colors */
+    background: linear-gradient(135deg, #ffb7b2, #ffdac1, #e2f0cb, #b5ead7, #c7ceea);
+    background-attachment: fixed; /* Keeps the background in place while you scroll */
+    color: #4a4a4a; /* Dark gray text for high contrast and readability */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 20px;
 }
 
-/* 2. Custom Title Fonts (Typography practice) */
+/* 2. Custom Title Fonts (Cute & Playful) */
 h1, h2 {
     font-family: 'Georgia', serif; 
-    color: #39ff14; /* Neon Green - matching the Neon-Glade Forest! */
+    color: #6c5ce7; /* A magical, deep pastel purple that pops against the rainbow */
     text-align: center;
-    text-shadow: 0 0 10px rgba(57, 255, 20, 0.5); /* Subtle glow effect */
 }
 
 /* 3. Image Styling */
 .recipe-img {
     display: block;
     margin: 0 auto;
-    border: 4px solid #ff007f; /* Neon Pink Border */
+    border: 6px solid #ffffff; /* Thick white frame to look like a cute polaroid photo */
     border-radius: 20px;
     max-width: 100%;
-    box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Soft shadow to make it lift off the page */
 }
 
 /* 4. THE DROP CAP (Huge First Letter) */
 .intro-text::first-letter {
     font-size: 85px;
     font-weight: bold;
-    color: #ff007f; /* Neon Pink */
+    color: #ff6b6b; /* Soft pastel red/pink */
     float: left;
     line-height: 70px;
     padding-right: 12px;
-    font-family: 'Impact', Charcoal, sans-serif; /* A bold, fun choice for the big letter */
+    font-family: 'Georgia', serif;
 }
 
 .intro-text {
@@ -41,16 +47,20 @@ h1, h2 {
     margin: 25px auto;
     font-size: 18px;
     line-height: 1.6;
+    background: rgba(255, 255, 255, 0.75); /* Semi-transparent white background box */
+    padding: 20px;
+    border-radius: 15px;
 }
 
 /* 5. Form & Selection Card Styling */
 .ingredients-section {
     max-width: 500px;
     margin: 30px auto;
-    background: #1f2833; /* Dark card background */
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid #45f3ff; /* Neon Cyan border */
+    background: rgba(255, 255, 255, 0.85); /* Clean white card so inputs are easy to see */
+    padding: 25px;
+    border-radius: 15px;
+    border: 2px solid #ffffff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
 }
 
 .check-item {
@@ -58,7 +68,7 @@ h1, h2 {
     margin: 12px 0;
     font-size: 18px;
     cursor: pointer;
-    color: #45f3ff; /* Text matches the border */
+    color: #4a4a4a; 
 }
 
 /* 6. Footer Styling */
@@ -66,7 +76,7 @@ footer {
     text-align: center;
     margin-top: 60px;
     padding: 20px;
-    border-top: 2px dashed #ff007f;
+    border-top: 2px dashed #6c5ce7;
     font-size: 14px;
-    color: #888;
+    color: #6c5ce7;
 }
