@@ -1,0 +1,72 @@
+/* 1. Global Styles & Thematic Colors */
+body {
+    background-color: #0b0c10; /* Dark space background to make neon colors POP */
+    color: #e0e0e0; /* Light gray text for readability */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+/* 2. Custom Title Fonts (Typography practice) */
+h1, h2 {
+    font-family: 'Georgia', serif; 
+    color: #39ff14; /* Neon Green - matching the Neon-Glade Forest! */
+    text-align: center;
+    text-shadow: 0 0 10px rgba(57, 255, 20, 0.5); /* Subtle glow effect */
+}
+
+/* 3. Image Styling */
+.recipe-img {
+    display: block;
+    margin: 0 auto;
+    border: 4px solid #ff007f; /* Neon Pink Border */
+    border-radius: 20px;
+    max-width: 100%;
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+}
+
+/* 4. THE DROP CAP (Huge First Letter) */
+.intro-text::first-letter {
+    font-size: 85px;
+    font-weight: bold;
+    color: #ff007f; /* Neon Pink */
+    float: left;
+    line-height: 70px;
+    padding-right: 12px;
+    font-family: 'Impact', Charcoal, sans-serif; /* A bold, fun choice for the big letter */
+}
+
+.intro-text {
+    max-width: 600px;
+    margin: 25px auto;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* 5. Form & Selection Card Styling */
+.ingredients-section {
+    max-width: 500px;
+    margin: 30px auto;
+    background: #1f2833; /* Dark card background */
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #45f3ff; /* Neon Cyan border */
+}
+
+.check-item {
+    display: block;
+    margin: 12px 0;
+    font-size: 18px;
+    cursor: pointer;
+    color: #45f3ff; /* Text matches the border */
+}
+
+/* 6. Footer Styling */
+footer {
+    text-align: center;
+    margin-top: 60px;
+    padding: 20px;
+    border-top: 2px dashed #ff007f;
+    font-size: 14px;
+    color: #888;
+}
