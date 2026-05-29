@@ -3,12 +3,15 @@ This was created with Google Gemini, an AI assistant for generating content.
 The recipe and character are original creations for Codecademy practice.
 */
 
-/* 1. Global Styles & The Rainbow Gradient Background */
+/* Update your Global section to include smooth scroll functionality */
+html {
+    scroll-behavior: smooth; /* Animates the jump transitions when clicking navigation links */
+}
+
 body {
-    /* This creates a smooth diagonal gradient from top-left to bottom-right using cute pastel colors */
     background: linear-gradient(135deg, #ffb7b2, #ffdac1, #e2f0cb, #b5ead7, #c7ceea);
-    background-attachment: fixed; /* Keeps the background in place while you scroll */
-    color: #4a4a4a; /* Dark gray text for high contrast and readability */
+    background-attachment: fixed; 
+    color: #4a4a4a; 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 20px;
@@ -21,21 +24,95 @@ h1, h2 {
     text-align: center;
 }
 
+/* 2.5 Navigation Bar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Pushes logo to the left, links to the right */
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8); /* Beautiful semi-transparent frosted glass look */
+    padding: 15px 30px;
+    border-radius: 50px; /* Gives it smooth, rounded pill-shaped edges */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px; /* Pushes the main title down a bit */
+    border: 1px solid #ffffff;
+}
+
+.nav-logo {
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: #6c5ce7; /* Matches your magical title purple */
+}
+
+.nav-links {
+    list-style: none; /* Removes default bullet points from the ul */
+    display: flex;    /* Lays the list items horizontally next to each other */
+    gap: 25px;        /* Spacing between each link */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none; /* Removes standard underline from links */
+    color: #4a4a4a;
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s ease; /* Smooth fade effect when you hover over the text */
+}
+
+/* Hover Effect: Turns pink when user hovers, just like real-world websites! */
+.nav-links a:hover {
+    color: #ff6b6b; 
+}
+
+/* Update your image section with these new rules: */
+
 /* 3. Image Styling */
 .recipe-img {
     display: block;
     margin: 0 auto;
-    border: 6px solid #ffffff; /* Thick white frame to look like a cute polaroid photo */
+    border: 6px solid #ffffff; 
     border-radius: 20px;
     max-width: 100%;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Soft shadow to make it lift off the page */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); 
 }
 
-/* 4. THE DROP CAP (Huge First Letter) */
+/* NEW: Styles the step-by-step recipe graphics panel to match the top header style */
+.ingredients-img {
+    display: block;
+    margin: 0 auto 20px auto; /* Centers horizontally and adds spacing below the image */
+    border: 4px solid #ffffff;
+    border-radius: 15px;
+    max-width: 100%; /* Scales gracefully down on mobile viewports */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* NEW: Ensures the secondary text below the drop-cap block aligns properly */
+.intro-text-followup {
+    max-width: 600px;
+    margin: 0 auto 25px auto;
+    font-size: 18px;
+    line-height: 1.6;
+    background: rgba(255, 255, 255, 0.75);
+    padding: 0 20px 20px 20px; /* Adjust padding top/bottom to blend seamlessly */
+    border-radius: 0 0 15px 15px;
+}
+
+/* 4. THE DROP CAP & INTRO TEXT BOX */
+.intro-box {
+    max-width: 600px;
+    margin: 25px auto;
+    background: rgba(255, 255, 255, 0.75); /* Single, seamless white background box */
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+/* The Magic Drop Cap targets only the very first letter of the first paragraph */
 .intro-text::first-letter {
     font-size: 85px;
     font-weight: bold;
-    color: #ff6b6b; /* Soft pastel red/pink */
+    color: #ff6b6b; /* Soft pastel pink/red */
     float: left;
     line-height: 70px;
     padding-right: 12px;
@@ -43,13 +120,72 @@ h1, h2 {
 }
 
 .intro-text {
-    max-width: 600px;
-    margin: 25px auto;
     font-size: 18px;
     line-height: 1.6;
-    background: rgba(255, 255, 255, 0.75); /* Semi-transparent white background box */
-    padding: 20px;
-    border-radius: 15px;
+    margin: 0 0 15px 0; /* Adds a nice margin strictly below the first paragraph */
+}
+
+.intro-subtext {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 600; /* Makes the call-to-action slightly bolder */
+    color: #6c5ce7; /* Magical purple color to draw the user's eye to the steps */
+}
+
+/* 4.5 About Us Section Styling */
+.about-section {
+    max-width: 650px; /* Slightly wider than ingredients for a comfortable reading layout */
+}
+
+.about-text {
+    font-size: 16px;
+    line-height: 1.7; /* Generous line spacing makes long text blocks easy on the eyes */
+    color: #4a4a4a;
+    margin-bottom: 20px;
+}
+
+/* Highlights Grid using Flexbox */
+.about-highlights {
+    display: flex;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.highlight-item {
+    flex: 1; /* Makes both highlight cards take up equal horizontal space */
+    background: #fff0f5; /* Soft lavender blush to match our theme colors */
+    padding: 15px 20px;
+    border-radius: 12px;
+    border: 1px dashed #ffb7b2;
+    text-align: center;
+}
+
+.highlight-icon {
+    font-size: 28px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.highlight-item h4 {
+    margin: 0 0 8px 0;
+    color: #6c5ce7;
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+}
+
+.highlight-item p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #555;
+}
+
+/* Responsive tweak: Stacks the highlight cards vertically on small mobile screens */
+@media (max-width: 500px) {
+    .about-highlights {
+        flex-direction: column;
+    }
 }
 
 /* 5. Form & Selection Card Styling */
@@ -71,12 +207,211 @@ h1, h2 {
     color: #4a4a4a; 
 }
 
-/* 6. Footer Styling */
+/* 5.5 Social Media Section Styling */
+.social-section {
+    text-align: center;
+}
+
+.social-intro {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.social-links-container {
+    display: flex;
+    flex-direction: column; /* Stacks the social buttons vertically */
+    gap: 15px;              /* Puts spacing between each button */
+}
+
+/* Base style for all social buttons */
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Icon left, name middle, count right */
+    padding: 14px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #4a4a4a;
+    background: #fdfdfd;
+    border: 1px solid #e2f0cb;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Smooth pop transition */
+}
+
+.social-icon {
+    font-size: 22px;
+}
+
+.follower-count {
+    font-size: 13px;
+    color: #888;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+/* Hover Effect: Makes the button pop forward slightly and change color */
+.social-btn:hover {
+    transform: translateY(-3px); /* Lifts the button up smoothly */
+    box-shadow: 0 8px 15px rgba(108, 92, 231, 0.15);
+}
+
+/* Custom left-accent borders for each unique platform */
+.equestrigram { border-left: 6px solid #e1306c; }
+.flutter { border-left: 6px solid #1da1f2; }
+.pinhoof { border-left: 6px solid #bd081c; }
+.stabletube { border-left: 6px solid #ff0000; }
+
+/* 5.6 Contact Section Styling */
+.contact-section {
+    text-align: center;
+}
+
+.contact-intro {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.contact-card {
+    display: flex;
+    flex-direction: column;   /* Stacks email and address vertically */
+    gap: 20px;
+    text-align: left;         /* Align the card details nicely to the left */
+    font-style: normal;       /* Keeps <address> from defaulting to clunky italics */
+    background: #fdfdfd;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #e2f0cb;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;  /* Aligns icon with the top of the text block */
+    gap: 15px;
+}
+
+.contact-icon {
+    font-size: 24px;
+    background: rgba(108, 92, 231, 0.1); /* Soft purple circle background */
+    padding: 8px;
+    border-radius: 50%;
+    line-height: 1;
+}
+
+.contact-link {
+    display: block;
+    color: #6c5ce7;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 2px;
+    transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+    color: #ff6b6b;
+    text-decoration: underline; /* Standard subtle hint that it's an actionable link */
+}
+
+.location-text {
+    margin: 4px 0 0 0;
+    font-size: 15px;
+    line-height: 1.4;
+    color: #555;
+}
+
+/* 6. Footer Styling & Flexbox Profile Card */
 footer {
     text-align: center;
     margin-top: 60px;
-    padding: 20px;
+    padding: 40px 20px;
     border-top: 2px dashed #6c5ce7;
+    background: rgba(255, 255, 255, 0.9); /* Opaque white background to lift off the rainbow */
+    border-radius: 20px 20px 0 0;
+}
+
+.creator-profile {
+    display: flex;             /* Lays out sidebar and bio side-by-side */
+    align-items: flex-start;   /* Aligns items to the top of the card */
+    justify-content: center;
+    gap: 40px;                 /* Adds a nice gap between the left and right sides */
+    max-width: 750px;
+    margin: 0 auto 30px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+}
+
+/* Left Sidebar Layout */
+.profile-sidebar {
+    display: flex;
+    flex-direction: column;    /* Stacks the avatar image and the name vertically */
+    align-items: center;       /* Centers the text horizontally under the image */
+    flex-shrink: 0;            /* Prevents the image column from shrinking */
+}
+
+.profile-pic img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;        /* Keeps our avatar image a perfect circle */
+    border: 4px solid #ffb7b2; /* Matches the pastel pink from your rainbow background */
+    object-fit: cover;
+}
+
+.profile-name {
+    margin-top: 12px;
+    margin-bottom: 0;
+    font-size: 20px;
+    color: #6c5ce7;            /* Magical purple accent color */
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+}
+
+/* Right Bio Layout */
+.bio-content {
+    text-align: left;          /* Keeps bio details easy to read */
+}
+
+.bio-content h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: left;          /* Ensures the bio header aligns neatly left */
+    color: #ff6b6b;
+}
+
+.bio-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.hobbies {
+    background: #f0f8ff;       /* Soft blue highlight box for extra flare */
+    padding: 15px;
+    border-radius: 12px;
+    border-left: 4px solid #6c5ce7;
+}
+
+.hobbies h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #6c5ce7;
+}
+
+.hobbies p {
+    margin: 0;
+    font-size: 15px;
+}
+
+.author-credit {
     font-size: 14px;
     color: #6c5ce7;
+    border-top: 1px solid #e2f0cb;
+    padding-top: 20px;
+    margin-top: 25px;
 }

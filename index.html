@@ -14,23 +14,63 @@ The recipe and character are original creations for Codecademy practice.
 </head>
 <body>
 
-    <header>
+<header>
+        <nav class="navbar">
+            <div class="nav-logo">✨ Sprinklesnap Bakes ✨</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#social">Social Media</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
         <h1>Sprinklesnap's Glow-berry Cosmic Cakes</h1>
     </header>
 
     <main>
-        <section class="recipe-intro">
+       <section class="recipe-intro">
             <img src="images/header_baking_sprinklesnap.png" alt="Sprinklesnap baking in her glowing kitchen" class="recipe-img">
             
-            <p class="intro-text">
-                Deep within the Neon-Glade Forest, Sprinklesnap the Pixie-Pony is whipping up a fresh batch of Cosmic Cakes! These treats naturally glow under the moonlight and taste like sweet stardust. 
-                <br><br>
-                Follow these steps carefully to brew your own kitchen magic!
+            <div class="intro-box">
+                <p class="intro-text">
+                    Deep within the Neon-Glade Forest, Sprinklesnap the Pixie-Pony is whipping up a fresh batch of Cosmic Cakes! These treats naturally glow under the moonlight and taste like sweet stardust. 
+                </p>
+                <p class="intro-subtext">
+                    Follow these steps carefully to brew your own kitchen magic!
+                </p>
+            </div>
+        </section>
+
+        <section id="about" class="ingredients-section about-section">
+            <h2>🌳 The Story of The Glowing Oven Bakery 🌳</h2>
+            
+            <p class="about-text">
+                The Glowing Oven Bakery didn't start in a bustling city—it began with a tiny stone hearth nestled deep under the canopy of the Neon-Glade Forest. Founded by Sprinklesnap after years of exploring natural, light-bearing flora, the bakery was built on a simple philosophy: <strong>food should nourish your spirit just as much as your body.</strong>
+            </p>
+            
+            <div class="about-highlights">
+                <div class="highlight-item">
+                    <span class="highlight-icon">🌱</span>
+                    <h4>100% Foraged</h4>
+                    <p>Every berry, crystal, and grain of flour is responsibly hand-gathered right here in the forest.</p>
+                </div>
+                
+                <div class="highlight-item">
+                    <span class="highlight-icon">💪</span>
+                    <h4>Positive Energy</h4>
+                    <p>We strictly avoid heavy artificial ingredients, ensuring every bite leaves you feeling energized and bright.</p>
+                </div>
+            </div>
+            
+            <p class="about-text">
+                Today, Sprinklesnap works alongside a small, dedicated team of forest creatures who help sift luminescent flour, bottle pure liquid moonlight, and pack up fresh pastries for travelers journeying through the glade. Whether you visit us online or follow our recipes from afar, we are so glad to have you as part of our baking family!
             </p>
         </section>
 
         <section class="ingredients-section">
             <h2>1. Gather the Ingredients</h2>
+            <img src="images/cosmic_cakes_steps.png" alt="Ingredients for Cosmic Cakes" class="ingredients-img">
             <form>
                 <label class="check-item">
                     <input type="checkbox"> 2 cups of Luminescent Flour
@@ -58,29 +98,85 @@ The recipe and character are original creations for Codecademy practice.
                 </label>
             </form>
         </section>
+
+        <section id="social" class="ingredients-section social-section">
+            <h2>✨ Follow Sprinklesnap's Culinary Journey ✨</h2>
+            <p class="social-intro">Catch daily kitchen magic, live foraging streams, and wholesome baking tips on her official channels!</p>
+            
+            <div class="social-links-container">
+                <a href="#equestrigram" class="social-btn equestrigram">
+                    <span class="social-icon">📸</span> 
+                    <strong>Equestri-gram</strong>
+                    <span class="follower-count">1.2M followers</span>
+                </a>
+                
+                <a href="#flutter" class="social-btn flutter">
+                    <span class="social-icon">🦋</span> 
+                    <strong>Flutter (formerly Twit-ter)</strong>
+                    <span class="follower-count">450K followers</span>
+                </a>
+                
+                <a href="#pinhoof" class="social-btn pinhoof">
+                    <span class="social-icon">📌</span> 
+                    <strong>Pin-hoof</strong>
+                    <span class="follower-count">3M monthly views</span>
+                </a>
+                
+                <a href="#stabletube" class="social-btn stabletube">
+                    <span class="social-icon">📺</span> 
+                    <strong>Stable-Tube</strong>
+                    <span class="follower-count">800K subscribers</span>
+                </a>
+            </div>
+        </section>
+
+        <section id="contact" class="ingredients-section contact-section">
+            <h2>📬 Get in Touch with Sprinklesnap</h2>
+            <p class="contact-intro">Want to book a baking workshop, request a custom catering order, or send some friendly fan mail? Drop a message!</p>
+            
+            <address class="contact-card">
+                <div class="contact-item">
+                    <span class="contact-icon">✉️</span>
+                    <div>
+                        <strong>Business Email:</strong>
+                        <a href="mailto:sprinklesnap@neongladebakes.com" class="contact-link">sprinklesnap@neongladebakes.com</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <div>
+                        <strong>Where She Works:</strong>
+                        <p class="location-text">The Glowing Oven Bakery<br>
+                        Plot 7, Luminescent Pathway<br>
+                        The Neon-Glade Forest</p>
+                    </div>
+                </div>
+            </address>
+        </section>
     </main>
 
-    <footer>
-        <footer>
-    <div class="creator-profile">
-        <figure class="profile-pic">
-            <img src="images/sprinklesnap_profile.png" alt="Sprinklesnap, the blue Pixie-Pony baker.">
-        </figure>
-        
-        <div class="bio-content">
-            <h3>Meet Sprinklesnap, Your Magical Guide!</h3>
+<footer>
+        <div class="creator-profile">
+            <div class="profile-sidebar">
+                <figure class="profile-pic">
+                    <img src="images/sprinklesnap_profile.png" alt="Sprinklesnap, the blue Pixie-Pony baker.">
+                </figure>
+                <h3 class="profile-name">Sprinklesnap</h3>
+            </div>
             
-            <p>Sprinklesnap believes that true kitchen magic starts with picking the freshest, most vibrant ingredients nature provides—like her hand-gathered Neon-Glade glow-berries! She creates positive, healthy, and inherently magical recipes designed to energize both body and spirit. Sprinklesnap has been sharing her culinary journey for years and boasts a massive following on **'Equestri-gram,'** where she inspires millions to bake with love.</p>
-            
-            <aside class="hobbies">
-                <h4>When She's Not Baking:</h4>
-                <p>When she’s not swirling sparkling batters, Sprinklesnap loves moonlit cloud-painting, practicing her star-sugar chromatography, and cataloging new, naturally glowing flora in the Neon-Glade forest.</p>
-            </aside>
+            <div class="bio-content">
+                <h3>Meet Your Magical Guide!</h3>
+                <p>Sprinklesnap believes that true kitchen magic starts with picking the freshest, most vibrant ingredients nature provides—like her hand-gathered Neon-Glade glow-berries! She creates positive, healthy, and inherently magical recipes designed to energize both body and spirit. Sprinklesnap has been sharing her culinary journey for years and boasts a massive following on 'Equestri-gram,' where she inspires millions to bake with love.</p>
+                
+                <aside class="hobbies">
+                    <h4>When She's Not Baking:</h4>
+                    <p>When she’s not swirling sparkling batters, Sprinklesnap loves moonlit cloud-painting, practicing her star-sugar chromatography, and cataloging new, naturally glowing flora in the Neon-Glade forest.</p>
+                </aside>
+            </div>
         </div>
-    </div>
 
-    <p class="author-credit">Recipe magic-coded by **[Your Name]** | Original Character Concept for Codecademy Practice</p>
-</footer>
+        <p class="author-credit">Original Character Concept for Codecademy Practice</p>
     </footer>
 
 </body>
