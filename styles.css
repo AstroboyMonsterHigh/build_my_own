@@ -3,102 +3,110 @@ This was created with Google Gemini, an AI assistant for generating content.
 The recipe and character are original creations for Codecademy practice.
 */
 
+/* ==========================================================================
+   LOCAL FONTS SETUP (Google WebFonts Helper Match)
+   ========================================================================== */
 
-/* fredoka-regular - latin */
+/* 1. Playful Heading Font */
 @font-face {
   font-family: 'Fredoka';
   font-style: normal;
   font-weight: 400;
-  src: url('fonts/fredoka-v17-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('fonts/fredoka-v17-latin-regular.woff2') format('woff2');
 }
 
-/* cinzel-decorative-regular - latin */
+/* 2. Clean, Rounded Body Font */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Cinzel Decorative';
-  font-style: normal;
-  font-weight: 400;
-  src: url('fonts/cinzel-decorative-v19-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* quicksand-regular - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Quicksand';
   font-style: normal;
   font-weight: 400;
-  src: url('fonts/quicksand-v37-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('fonts/quicksand-v37-latin-regular.woff2') format('woff2');
 }
+
+/* 3. Magical Drop-Cap Font */
+@font-face {
+  font-family: 'Cinzel Decorative';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/cinzel-decorative-v19-latin-regular.woff2') format('woff2');
+}
+
+/* ==========================================================================
+   GLOBAL & ELEMENT UPDATES
+   ========================================================================== */
 
 * {
-    font-family: 'Fredoka' !important;
+    font-family: 'Cinzel Decorative' !important;
 }
 
-/* Update your Global section to include smooth scroll functionality */
 html {
-    scroll-behavior: smooth; /* Animates the jump transitions when clicking navigation links */
+    scroll-behavior: smooth; /* Animates transitions when clicking navbar links */
 }
 
 body {
     background: linear-gradient(135deg, #ffb7b2, #ffdac1, #e2f0cb, #b5ead7, #c7ceea);
     background-attachment: fixed; 
     color: #4a4a4a; 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Quicksand', 'Segoe UI', sans-serif; 
     margin: 0;
     padding: 20px;
 }
 
-/* 2. Custom Title Fonts (Cute & Playful) */
-h1, h2 {
-    font-family: 'Georgia', serif; 
-    color: #6c5ce7; /* A magical, deep pastel purple that pops against the rainbow */
-    text-align: center;
+/* Updated headings to use Fredoka locally */
+h1, h2, h3, h4, .nav-logo {
+    font-family: 'Fredoka', sans-serif; 
+    color: #6c5ce7; 
 }
 
-/* 2.5 Navigation Bar Styling */
+/* ==========================================================================
+   NAVIGATION BAR
+   ========================================================================== */
+
 .navbar {
     display: flex;
-    justify-content: space-between; /* Pushes logo to the left, links to the right */
+    justify-content: space-between; 
     align-items: center;
-    background: rgba(255, 255, 255, 0.8); /* Beautiful semi-transparent frosted glass look */
+    background: rgba(255, 255, 255, 0.8); 
     padding: 15px 30px;
-    border-radius: 50px; /* Gives it smooth, rounded pill-shaped edges */
+    border-radius: 50px; 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    margin-bottom: 40px; /* Pushes the main title down a bit */
+    margin-bottom: 40px; 
     border: 1px solid #ffffff;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .nav-logo {
-    font-family: 'Georgia', serif;
     font-weight: bold;
     font-size: 20px;
-    color: #6c5ce7; /* Matches your magical title purple */
+    color: #6c5ce7; 
 }
 
 .nav-links {
-    list-style: none; /* Removes default bullet points from the ul */
-    display: flex;    /* Lays the list items horizontally next to each other */
-    gap: 25px;        /* Spacing between each link */
+    list-style: none; 
+    display: flex;    
+    gap: 25px;        
     margin: 0;
     padding: 0;
 }
 
 .nav-links a {
-    text-decoration: none; /* Removes standard underline from links */
+    text-decoration: none; 
     color: #4a4a4a;
     font-weight: 600;
     font-size: 16px;
-    transition: color 0.3s ease; /* Smooth fade effect when you hover over the text */
+    transition: color 0.3s ease; 
 }
 
-/* Hover Effect: Turns pink when user hovers, just like real-world websites! */
 .nav-links a:hover {
     color: #ff6b6b; 
 }
 
-/* Update your image section with these new rules: */
+/* ==========================================================================
+   IMAGERY & INTRO LAYOUT
+   ========================================================================== */
 
-/* 3. Image Styling */
 .recipe-img {
     display: block;
     margin: 0 auto;
@@ -108,75 +116,64 @@ h1, h2 {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); 
 }
 
-/* NEW: Styles the step-by-step recipe graphics panel to match the top header style */
 .ingredients-img {
     display: block;
-    margin: 0 auto 20px auto; /* Centers horizontally and adds spacing below the image */
+    margin: 0 auto 20px auto; 
     border: 4px solid #ffffff;
     border-radius: 15px;
-    max-width: 100%; /* Scales gracefully down on mobile viewports */
+    max-width: 100%; 
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* NEW: Ensures the secondary text below the drop-cap block aligns properly */
-.intro-text-followup {
-    max-width: 600px;
-    margin: 0 auto 25px auto;
-    font-size: 18px;
-    line-height: 1.6;
-    background: rgba(255, 255, 255, 0.75);
-    padding: 0 20px 20px 20px; /* Adjust padding top/bottom to blend seamlessly */
-    border-radius: 0 0 15px 15px;
-}
-
-/* 4. THE DROP CAP & INTRO TEXT BOX */
 .intro-box {
     max-width: 600px;
     margin: 25px auto;
-    background: rgba(255, 255, 255, 0.75); /* Single, seamless white background box */
+    background: rgba(255, 255, 255, 0.75); 
     padding: 25px;
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
 }
 
-/* The Magic Drop Cap targets only the very first letter of the first paragraph */
 .intro-text::first-letter {
     font-size: 85px;
     font-weight: bold;
-    color: #ff6b6b; /* Soft pastel pink/red */
+    color: #ff6b6b; 
     float: left;
     line-height: 70px;
     padding-right: 12px;
-    font-family: 'Georgia', serif;
+    font-family: 'Cinzel Decorative', serif; 
 }
 
 .intro-text {
     font-size: 18px;
     line-height: 1.6;
-    margin: 0 0 15px 0; /* Adds a nice margin strictly below the first paragraph */
+    margin: 0 0 15px 0; 
 }
 
 .intro-subtext {
     font-size: 18px;
     line-height: 1.6;
     margin: 0;
-    font-weight: 600; /* Makes the call-to-action slightly bolder */
-    color: #6c5ce7; /* Magical purple color to draw the user's eye to the steps */
+    font-weight: 600; 
+    color: #6c5ce7; 
 }
 
-/* 4.5 About Us Section Styling */
+/* ==========================================================================
+   ABOUT US COMPONENT
+   ========================================================================== */
+
 .about-section {
-    max-width: 650px; /* Slightly wider than ingredients for a comfortable reading layout */
+    max-width: 650px; 
 }
 
 .about-text {
     font-size: 16px;
-    line-height: 1.7; /* Generous line spacing makes long text blocks easy on the eyes */
+    line-height: 1.7; 
     color: #4a4a4a;
     margin-bottom: 20px;
+    text-align: left;
 }
 
-/* Highlights Grid using Flexbox */
 .about-highlights {
     display: flex;
     gap: 20px;
@@ -184,8 +181,8 @@ h1, h2 {
 }
 
 .highlight-item {
-    flex: 1; /* Makes both highlight cards take up equal horizontal space */
-    background: #fff0f5; /* Soft lavender blush to match our theme colors */
+    flex: 1; 
+    background: #fff0f5; 
     padding: 15px 20px;
     border-radius: 12px;
     border: 1px dashed #ffb7b2;
@@ -201,7 +198,6 @@ h1, h2 {
 .highlight-item h4 {
     margin: 0 0 8px 0;
     color: #6c5ce7;
-    font-family: 'Georgia', serif;
     font-size: 18px;
 }
 
@@ -212,18 +208,20 @@ h1, h2 {
     color: #555;
 }
 
-/* Responsive tweak: Stacks the highlight cards vertically on small mobile screens */
 @media (max-width: 500px) {
     .about-highlights {
         flex-direction: column;
     }
 }
 
-/* 5. Form & Selection Card Styling */
+/* ==========================================================================
+   INGREDIENTS & SECTIONS CONTAINERS
+   ========================================================================== */
+
 .ingredients-section {
     max-width: 500px;
-    margin: 30px auto;
-    background: rgba(255, 255, 255, 0.85); /* Clean white card so inputs are easy to see */
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.85); 
     padding: 25px;
     border-radius: 15px;
     border: 2px solid #ffffff;
@@ -236,9 +234,13 @@ h1, h2 {
     font-size: 18px;
     cursor: pointer;
     color: #4a4a4a; 
+    text-align: left;
 }
 
-/* 5.5 Social Media Section Styling */
+/* ==========================================================================
+   SOCIAL MEDIA WIDGET
+   ========================================================================== */
+
 .social-section {
     text-align: center;
 }
@@ -252,15 +254,14 @@ h1, h2 {
 
 .social-links-container {
     display: flex;
-    flex-direction: column; /* Stacks the social buttons vertically */
-    gap: 15px;              /* Puts spacing between each button */
+    flex-direction: column; 
+    gap: 15px;              
 }
 
-/* Base style for all social buttons */
 .social-btn {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Icon left, name middle, count right */
+    justify-content: space-between; 
     padding: 14px 20px;
     border-radius: 12px;
     text-decoration: none;
@@ -269,7 +270,7 @@ h1, h2 {
     background: #fdfdfd;
     border: 1px solid #e2f0cb;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Smooth pop transition */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
 }
 
 .social-icon {
@@ -284,19 +285,20 @@ h1, h2 {
     border-radius: 20px;
 }
 
-/* Hover Effect: Makes the button pop forward slightly and change color */
 .social-btn:hover {
-    transform: translateY(-3px); /* Lifts the button up smoothly */
+    transform: translateY(-3px); 
     box-shadow: 0 8px 15px rgba(108, 92, 231, 0.15);
 }
 
-/* Custom left-accent borders for each unique platform */
 .equestrigram { border-left: 6px solid #e1306c; }
 .flutter { border-left: 6px solid #1da1f2; }
 .pinhoof { border-left: 6px solid #bd081c; }
 .stabletube { border-left: 6px solid #ff0000; }
 
-/* 5.6 Contact Section Styling */
+/* ==========================================================================
+   CONTACT CARD
+   ========================================================================== */
+
 .contact-section {
     text-align: center;
 }
@@ -310,10 +312,10 @@ h1, h2 {
 
 .contact-card {
     display: flex;
-    flex-direction: column;   /* Stacks email and address vertically */
+    flex-direction: column;   
     gap: 20px;
-    text-align: left;         /* Align the card details nicely to the left */
-    font-style: normal;       /* Keeps <address> from defaulting to clunky italics */
+    text-align: left;         
+    font-style: normal;       
     background: #fdfdfd;
     padding: 20px;
     border-radius: 12px;
@@ -322,13 +324,13 @@ h1, h2 {
 
 .contact-item {
     display: flex;
-    align-items: flex-start;  /* Aligns icon with the top of the text block */
+    align-items: flex-start;  
     gap: 15px;
 }
 
 .contact-icon {
     font-size: 24px;
-    background: rgba(108, 92, 231, 0.1); /* Soft purple circle background */
+    background: rgba(108, 92, 231, 0.1); 
     padding: 8px;
     border-radius: 50%;
     line-height: 1;
@@ -345,7 +347,7 @@ h1, h2 {
 
 .contact-link:hover {
     color: #ff6b6b;
-    text-decoration: underline; /* Standard subtle hint that it's an actionable link */
+    text-decoration: underline; 
 }
 
 .location-text {
@@ -355,21 +357,24 @@ h1, h2 {
     color: #555;
 }
 
-/* 6. Footer Styling & Flexbox Profile Card */
+/* ==========================================================================
+   FOOTER BIO PROFILE
+   ========================================================================== */
+
 footer {
     text-align: center;
     margin-top: 60px;
     padding: 40px 20px;
     border-top: 2px dashed #6c5ce7;
-    background: rgba(255, 255, 255, 0.9); /* Opaque white background to lift off the rainbow */
+    background: rgba(255, 255, 255, 0.9); 
     border-radius: 20px 20px 0 0;
 }
 
 .creator-profile {
-    display: flex;             /* Lays out sidebar and bio side-by-side */
-    align-items: flex-start;   /* Aligns items to the top of the card */
+    display: flex;             
+    align-items: flex-start;   
     justify-content: center;
-    gap: 40px;                 /* Adds a nice gap between the left and right sides */
+    gap: 40px;                 
     max-width: 750px;
     margin: 0 auto 30px auto;
     background: #ffffff;
@@ -378,19 +383,18 @@ footer {
     box-shadow: 0 8px 24px rgba(0,0,0,0.05);
 }
 
-/* Left Sidebar Layout */
 .profile-sidebar {
     display: flex;
-    flex-direction: column;    /* Stacks the avatar image and the name vertically */
-    align-items: center;       /* Centers the text horizontally under the image */
-    flex-shrink: 0;            /* Prevents the image column from shrinking */
+    flex-direction: column;    
+    align-items: center;       
+    flex-shrink: 0;            
 }
 
 .profile-pic img {
     width: 140px;
     height: 140px;
-    border-radius: 50%;        /* Keeps our avatar image a perfect circle */
-    border: 4px solid #ffb7b2; /* Matches the pastel pink from your rainbow background */
+    border-radius: 50%;        
+    border: 4px solid #ffb7b2; 
     object-fit: cover;
 }
 
@@ -398,20 +402,18 @@ footer {
     margin-top: 12px;
     margin-bottom: 0;
     font-size: 20px;
-    color: #6c5ce7;            /* Magical purple accent color */
-    font-family: 'Georgia', serif;
+    color: #6c5ce7;            
     font-weight: bold;
 }
 
-/* Right Bio Layout */
 .bio-content {
-    text-align: left;          /* Keeps bio details easy to read */
+    text-align: left;          
 }
 
 .bio-content h3 {
     margin-top: 0;
     margin-bottom: 10px;
-    text-align: left;          /* Ensures the bio header aligns neatly left */
+    text-align: left;          
     color: #ff6b6b;
 }
 
@@ -422,7 +424,7 @@ footer {
 }
 
 .hobbies {
-    background: #f0f8ff;       /* Soft blue highlight box for extra flare */
+    background: #f0f8ff;       
     padding: 15px;
     border-radius: 12px;
     border-left: 4px solid #6c5ce7;
