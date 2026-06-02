@@ -4,7 +4,7 @@ The recipe and character are original creations for Codecademy practice.
 */
 
 /* ==========================================================================
-   LOCAL FONTS SETUP (Google WebFonts Helper Match)
+   LOCAL FONTS SETUP
    ========================================================================== */
 
 @font-face {
@@ -29,7 +29,7 @@ The recipe and character are original creations for Codecademy practice.
 }
 
 /* ==========================================================================
-   GLOBAL & ELEMENT UPDATES
+   GLOBAL BACKGROUND & LIQUID EMOJI STREAM
    ========================================================================== */
 
 html {
@@ -37,12 +37,48 @@ html {
 }
 
 body {
-    background: linear-gradient(135deg, #ffb7b2, #ffdac1, #e2f0cb, #b5ead7, #c7ceea);
-    background-attachment: fixed; 
     color: #4a4a4a; 
     font-family: 'Quicksand', 'Segoe UI', sans-serif; 
     margin: 0;
     padding: 20px;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Layer 1: Moving Liquid Pastel Gradient */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -2;
+    background: linear-gradient(-45deg, #ffb7b2, #ffdac1, #e2f0cb, #b5ead7, #c7ceea, #ffdac1, #ffb7b2);
+    background-size: 400% 400%;
+    animation: liquidFlow 16s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Layer 2: Floating Emoji Veil with Preserved Visibility Configuration */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+    opacity: 0.25; 
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'><text x='20' y='40' font-size='22'>✨</text><text x='110' y='50' font-size='24'>🧁</text><text x='30' y='110' font-size='20'>🍄</text><text x='120' y='120' font-size='26'>🌟</text><text x='70' y='85' font-size='18'>🌱</text></svg>");
+    animation: emojiStream 30s linear infinite;
+}
+
+@keyframes liquidFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes emojiStream {
+    from { background-position: 0 0; }
+    to { background-position: 320px 320px; }
 }
 
 h1, h2, h3, h4, .nav-logo {
@@ -56,13 +92,18 @@ h1 {
 }
 
 @keyframes titleGlow {
-    from {
-        text-shadow: 0 0 4px rgba(255, 255, 255, 0.6), 0 0 10px rgba(108, 92, 231, 0.2);
-    }
-    to {
-        text-shadow: 0 0 12px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 107, 107, 0.5);
-        transform: scale(1.02);
-    }
+    from { text-shadow: 0 0 4px rgba(255, 255, 255, 0.6), 0 0 10px rgba(108, 92, 231, 0.2); }
+    to { text-shadow: 0 0 15px rgba(255, 255, 255, 0.9), 0 0 25px rgba(255, 107, 107, 0.6); transform: scale(1.02); }
+}
+
+.magic-sparkle {
+    display: inline-block;
+    animation: sparklePulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes sparklePulse {
+    0% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 2px rgba(255,215,0,0.4)); }
+    100% { transform: scale(1.2) rotate(10deg); filter: drop-shadow(0 0 8px rgba(255,215,0,0.8)); }
 }
 
 /* ==========================================================================
@@ -73,7 +114,7 @@ h1 {
     display: flex;
     justify-content: space-between; 
     align-items: center;
-    background: rgba(255, 255, 255, 0.8); 
+    background: rgba(255, 255, 255, 0.85); 
     padding: 15px 30px;
     border-radius: 50px; 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -82,6 +123,13 @@ h1 {
     max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
+    backdrop-filter: blur(5px);
+    animation: slideDownNav 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes slideDownNav {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 .nav-links {
@@ -97,70 +145,71 @@ h1 {
     color: #4a4a4a;
     font-weight: 600;
     font-size: 16px;
-    transition: color 0.3s ease; 
+    transition: color 0.3s ease, transform 0.2s ease; 
+    display: inline-block;
 }
 
 .nav-links a:hover {
     color: #ff6b6b; 
+    transform: scale(1.05);
 }
 
 /* ==========================================================================
-   RESPONSIVE CSS GRID SYSTEM (The Flow Fix)
+   UNIFIED PIPELINE LAYOUT (Symmetric Card Container)
    ========================================================================== */
 
 .grid-container {
-    display: grid;
-    grid-template-columns: 1fr; /* Single column on narrow screens */
-    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
     max-width: 1100px;
     margin: 0 auto;
 }
 
-/* Grid adjustments for tablets and desktops */
-@media (min-width: 850px) {
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr); /* Balanced side-by-side columns */
-    }
-
-    .full-width {
-        grid-column: span 2; /* Spans full width gracefully */
-    }
-}
-
-/* ==========================================================================
-   UNIFIED CARD COMPONENT
-   ========================================================================== */
-
 .card {
-    background: rgba(255, 255, 255, 0.85); 
-    padding: 35px; 
-    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.88); 
+    padding: 40px; 
+    border-radius: 24px;
     border: 2px solid #ffffff;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
     box-sizing: border-box; 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    
-    /* Ensures internal elements can align cleanly if stretched */
+    width: 100%; 
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.4s ease;
     display: flex;
     flex-direction: column;
+    backdrop-filter: blur(4px);
+    animation: magicalReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-/* Replaced disjointed floating animations with clean, responsive feedback */
+@keyframes magicalReveal {
+    from { opacity: 0; transform: translateY(30px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.grid-container > section:nth-of-type(1) { animation-delay: 0.1s; }
+.grid-container > section:nth-of-type(2) { animation-delay: 0.2s; }
+.grid-container > section:nth-of-type(3) { animation-delay: 0.3s; }
+.grid-container > section:nth-of-type(4) { animation-delay: 0.4s; }
+
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 14px 35px rgba(108, 92, 231, 0.12);
+    box-shadow: 0 20px 40px rgba(108, 92, 231, 0.15);
+    border-color: rgba(108, 92, 231, 0.25);
 }
 
 .card h2 {
     margin-top: 0;
     text-align: center;
+    font-size: 26px;
+    margin-bottom: 25px;
 }
 
 /* ==========================================================================
-   IMAGERY & INTRO LAYOUT
+   RECIPE INTRO BLOCK
    ========================================================================== */
 
-.recipe-img {
+.recipe-img, .ingredients-img {
     display: block;
     margin: 0 auto;
     border: 6px solid #ffffff; 
@@ -168,25 +217,26 @@ h1 {
     max-width: 100%;
     height: auto;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease;
 }
 
 .ingredients-img {
-    display: block;
-    margin: 0 auto 20px auto; 
-    border: 4px solid #ffffff;
-    border-radius: 15px;
-    max-width: 100%; 
-    height: auto;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    margin: 0 auto 25px auto; 
+    border-width: 4px;
+}
+
+.card:hover .recipe-img,
+.card:hover .ingredients-img {
+    transform: scale(1.015);
 }
 
 .intro-box {
-    max-width: 750px;
-    margin: 25px auto 0 auto;
-    background: rgba(255, 255, 255, 0.75); 
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    max-width: 800px;
+    margin: 30px auto 0 auto;
+    background: rgba(255, 255, 255, 0.7); 
+    padding: 25px 35px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
 }
 
 .intro-text::first-letter {
@@ -201,7 +251,7 @@ h1 {
 
 .intro-text {
     font-size: 18px;
-    line-height: 1.6;
+    line-height: 1.65;
     margin: 0 0 15px 0; 
 }
 
@@ -215,124 +265,202 @@ h1 {
 }
 
 /* ==========================================================================
-   ABOUT US ELEMENT
+   COMBINED RECIPE STEPS WIDGET
    ========================================================================== */
 
-.about-text {
-    font-size: 16px;
-    line-height: 1.7; 
-    color: #4a4a4a;
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.about-highlights {
+.recipe-internal-grid {
     display: flex;
-    gap: 15px;
-    margin: 25px 0;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
 }
 
-.highlight-item {
-    flex: 1; 
-    background: #fff0f5; 
-    padding: 15px;
-    border-radius: 12px;
-    border: 1px dashed #ffb7b2;
-    text-align: center;
+.recipe-step-column {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px dashed #b5ead7;
 }
 
-.highlight-icon {
-    font-size: 28px;
-    display: block;
-    margin-bottom: 8px;
-}
-
-.highlight-item h4 {
-    margin: 0 0 8px 0;
+.recipe-step-column h3 {
+    text-align: left;
+    margin-top: 0;
     color: #6c5ce7;
-    font-size: 18px;
+    font-size: 20px;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
 }
 
-.highlight-item p {
-    margin: 0;
-    font-size: 14px;
-    line-height: 1.4;
-    color: #555;
-}
-
-@media (max-width: 550px) {
-    .about-highlights {
-        flex-direction: column;
+@media (min-width: 768px) {
+    .recipe-internal-grid {
+        flex-direction: row;
+        gap: 35px;
     }
 }
 
 /* ==========================================================================
-   FORM CONTROLS
+   ENHANCED ABOUT US CARD (Storybook Layout)
    ========================================================================== */
 
-.social-links-container, form, .contact-card {
+.about-content-wrapper {
     width: 100%;
-    max-width: 480px;
-    margin: auto auto 0 auto; /* Pushes content cleanly down if grid cards stretch */
 }
 
-.check-item {
-    display: block;
-    margin: 14px 0;
-    font-size: 18px;
-    cursor: pointer;
-    color: #4a4a4a; 
+.about-lead {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #6c5ce7;
+    font-weight: 600;
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto 30px auto;
+    padding: 15px;
+    background: rgba(108, 92, 231, 0.04);
+    border-radius: 12px;
+    border-left: 4px solid #6c5ce7;
+}
+
+.about-layout-split {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.about-narrative {
+    flex: 1.2;
+    font-size: 17px;
+    line-height: 1.75;
+    color: #555555;
+}
+
+.about-narrative p {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.about-magical-runes {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.rune-badge {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(255, 240, 245, 0.7);
+    padding: 18px 22px;
+    border-radius: 16px;
+    border: 1px dashed #ffb7b2;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.rune-badge:hover {
+    transform: translateX(5px);
+    background: #fff5f8;
+}
+
+.rune-icon {
+    font-size: 32px;
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(255, 183, 178, 0.3);
+    line-height: 1;
+}
+
+.rune-text h4 {
+    margin: 0 0 4px 0;
     text-align: left;
+    font-size: 18px;
+    color: #6c5ce7;
+}
+
+.rune-text p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #666666;
+}
+
+@media (min-width: 850px) {
+    .about-layout-split {
+        flex-direction: row;
+        gap: 40px;
+        align-items: center;
+    }
 }
 
 /* ==========================================================================
-   SOCIAL MEDIA WIDGET
+   COMBINED SOCIAL & CONTACT CONNECTOR
    ========================================================================== */
 
-.social-intro {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 25px;
+.connect-internal-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+}
+
+.connect-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.connect-column h3 {
+    font-size: 22px;
+    color: #6c5ce7;
+    margin-top: 0;
+    margin-bottom: 8px;
+    border-left: 4px solid #ff6b6b;
+    padding-left: 10px;
+}
+
+.connect-sub-intro {
+    font-size: 15px;
+    color: #777777;
+    margin-top: 0;
+    margin-bottom: 20px;
     line-height: 1.5;
-    text-align: center;
 }
 
 .social-links-container {
     display: flex;
     flex-direction: column; 
-    gap: 15px;              
+    gap: 12px;
+    width: 100%;              
 }
 
 .social-btn {
     display: flex;
     align-items: center;
     justify-content: space-between; 
-    padding: 14px 20px;
+    padding: 12px 20px;
     border-radius: 12px;
     text-decoration: none;
     font-size: 16px;
     color: #4a4a4a;
     background: #fdfdfd;
     border: 1px solid #e2f0cb;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.01);
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-}
-
-.social-icon {
-    font-size: 22px;
-}
-
-.follower-count {
-    font-size: 13px;
-    color: #888;
-    background: rgba(0, 0, 0, 0.05);
-    padding: 4px 10px;
-    border-radius: 20px;
 }
 
 .social-btn:hover {
     transform: translateY(-3px); 
-    box-shadow: 0 8px 15px rgba(108, 92, 231, 0.15);
+    box-shadow: 0 6px 15px rgba(108, 92, 231, 0.12);
+}
+
+.follower-count {
+    font-size: 12px;
+    color: #888;
+    background: rgba(0, 0, 0, 0.04);
+    padding: 3px 10px;
+    border-radius: 20px;
 }
 
 .equestrigram { border-left: 6px solid #e1306c; }
@@ -340,28 +468,16 @@ h1 {
 .pinhoof { border-left: 6px solid #bd081c; }
 .stabletube { border-left: 6px solid #ff0000; }
 
-/* ==========================================================================
-   CONTACT CARD
-   ========================================================================== */
-
-.contact-intro {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 25px;
-    line-height: 1.5;
-    text-align: center;
-}
-
 .contact-card {
     display: flex;
     flex-direction: column;   
-    gap: 20px;
-    text-align: left;         
+    gap: 15px;
     font-style: normal;       
     background: #fdfdfd;
-    padding: 25px;
+    padding: 20px;
     border-radius: 12px;
     border: 1px solid #e2f0cb;
+    margin-top: auto; 
 }
 
 .contact-item {
@@ -371,11 +487,16 @@ h1 {
 }
 
 .contact-icon {
-    font-size: 24px;
-    background: rgba(108, 92, 231, 0.1); 
+    font-size: 22px;
+    background: rgba(108, 92, 231, 0.08); 
     padding: 8px;
     border-radius: 50%;
     line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover .contact-icon {
+    transform: rotate(15deg) scale(1.05);
 }
 
 .contact-link {
@@ -384,7 +505,6 @@ h1 {
     text-decoration: none;
     font-weight: 600;
     margin-top: 2px;
-    transition: color 0.2s ease;
 }
 
 .contact-link:hover {
@@ -394,34 +514,61 @@ h1 {
 
 .location-text {
     margin: 4px 0 0 0;
-    font-size: 15px;
-    line-height: 1.4;
+    font-size: 14px;
+    line-height: 1.45;
     color: #555;
 }
 
+@media (min-width: 768px) {
+    .connect-internal-grid {
+        flex-direction: row;
+        gap: 45px;
+    }
+}
+
 /* ==========================================================================
-   FOOTER PROFILE BIO
+   FORM INPUT ELEMENTS
+   ========================================================================== */
+
+.check-item {
+    display: block;
+    margin: 14px 0;
+    font-size: 17px;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.check-item:hover {
+    transform: translateX(4px);
+    color: #6c5ce7;
+}
+
+/* ==========================================================================
+   REFINED MAGICAL FOOTER PROFILE (Dashes Removed & Frame Blended)
    ========================================================================== */
 
 footer {
-    margin-top: 60px;
-    padding: 40px 20px;
-    border-top: 2px dashed #6c5ce7;
-    background: rgba(255, 255, 255, 0.9); 
-    border-radius: 20px 20px 0 0;
+    margin-top: 80px;
+    padding: 50px 20px;
+    background: rgba(255, 255, 255, 0.94); 
+    border-radius: 32px 32px 0 0;
+    box-shadow: 0 -10px 30px rgba(108, 92, 231, 0.05); /* Soft glowing transitional elevation boundary */
+    animation: magicalReveal 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.5s;
 }
 
 .creator-profile {
     display: flex;             
-    align-items: flex-start;   
+    align-items: center;   
     justify-content: center;
-    gap: 40px;                 
+    gap: 50px;                 
     max-width: 1100px;
     margin: 0 auto 30px auto;
     background: #ffffff;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 12px 32px rgba(108, 92, 231, 0.06);
+    border: 1px solid rgba(108, 92, 231, 0.1);
     box-sizing: border-box;
 }
 
@@ -432,18 +579,26 @@ footer {
     flex-shrink: 0;            
 }
 
+/* Scaled up avatar wrapper featuring high-contrast multi-ring glowing boundary layers */
 .profile-pic img {
-    width: 140px;
-    height: 140px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;        
-    border: 4px solid #ffb7b2; 
+    border: 5px solid #ffffff; 
+    box-shadow: 0 0 0 4px #ffb7b2, 0 8px 25px rgba(108, 92, 231, 0.25);
     object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.creator-profile:hover .profile-pic img {
+    transform: scale(1.06) rotate(6deg);
+    box-shadow: 0 0 0 5px #ff6b6b, 0 12px 30px rgba(108, 92, 231, 0.35);
 }
 
 .profile-name {
-    margin-top: 12px;
+    margin-top: 16px;
     margin-bottom: 0;
-    font-size: 20px;
+    font-size: 22px;
     color: #6c5ce7;            
     font-weight: bold;
     text-align: center;
@@ -455,41 +610,46 @@ footer {
 
 .bio-content h3 {
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     text-align: left;          
     color: #ff6b6b;
+    font-size: 24px;
 }
 
 .bio-content p {
     font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 15px;
+    line-height: 1.65;
+    margin-bottom: 18px;
+    color: #555555;
 }
 
 .hobbies {
-    background: #f0f8ff;       
-    padding: 15px;
-    border-radius: 12px;
-    border-left: 4px solid #6c5ce7;
+    background: linear-gradient(to right, #f0f8ff, rgba(240, 248, 255, 0.3));       
+    padding: 18px;
+    border-radius: 14px;
+    border-left: 5px solid #6c5ce7;
 }
 
 .hobbies h4 {
     margin-top: 0;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
     color: #6c5ce7;
     text-align: left;
+    font-size: 16px;
 }
 
 .hobbies p {
     margin: 0;
     font-size: 15px;
+    color: #555555;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
     .creator-profile {
         flex-direction: column;
         align-items: center;
-        gap: 20px;
+        gap: 30px;
+        padding: 30px;
     }
     .bio-content h3 {
         text-align: center;
@@ -500,7 +660,7 @@ footer {
     font-size: 14px;
     color: #6c5ce7;
     border-top: 1px solid #e2f0cb;
-    padding-top: 20px;
-    margin-top: 25px;
+    padding-top: 25px;
+    margin-top: 35px;
     text-align: center;
 }
